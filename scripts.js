@@ -35,29 +35,36 @@ function getComputerChoice() {
 }
 /**
  * ---This will start a mock game to test rock paper scissor game
- *      If playerSelection equals rock AND computerSelection equals Rock
- *          console log "It is a tie!"
- *      If playerSelection equals paper AND computerSelection equals paper
- *          console log "It is a tie!"
- *      If playerSelection equals Scissor AND computerSelection equals Scissor
- *          console log "It is a tie!"
- *      If playerSelection equals rock AND computerSelection equals scissor
- *               player++
- *               console log "Player wins!"
- *      If playerSelection equals rock AND computerSelection equals paper
- *               computer++
- *               console log "Computer wins!"
- *      If playerSelection equals paper AND computerSelection equals scissor
- *              computer++
- *              console log "It is a tie!"
- *      If playerSelection equals paper AND computerSelection equals scissor
- *              computer++
- *              console log "It is a tie!"
- *
+ * 
+ * For switch statement you can do this
+ * if playerSelection equals rock 
+ *     switch computer selection
+ *        case "rock"
+ *          return "tie"
+ *        case "scissor"
+ *          return "you have lost"
+ *        case "paper"
+ *           return "you have won"
+ * 
+ * if playerSelection equals paper
+ *     switch computer selection
+ *        case "rock"
+ *          return "you have won"
+ *        case "scissor"
+ *          return "you have lost"
+ *        case "paper"
+ *           return "tie"
+ * 
+ * if playerSelection equals scissor
+ *     switch computer selection
+ *        case "rock"
+ *          return "you have lost"
+ *        case "scissor"
+ *          return "tie"
+ *        case "paper"
+ *           return "you have won"
+ * 
  **/
- let playerWins = "Player wins this round";
- let computerWins = "Computer wins this round";
- let draw = "It is a tie"
 
 function playRound(playerSelection, computerSelection) {
   console.log(`Player has chosen ${playerSelection}`);
@@ -66,18 +73,76 @@ function playRound(playerSelection, computerSelection) {
     (computerSelection === "paper" && playerSelection === "rock") ||
     (computerSelection === "scissor" && playerSelection === "paper")
   ) {
-    return computerWins;
+    return "Computer wins you have lost!";
   } else if (
     (playerSelection === "rock" && computerSelection === "scissor") ||
     (playerSelection === "paper" && computerSelection === "rock") ||
     (playerSelection === "scissor" && computerSelection === "paper")
   ) {
-    return computerWins;
+    return "You have won congratulations!"
   } else {
-    return draw;
+    return "It is a tie Boohoo!";
   }
 }
 
-let playerSelection = "rock";
-let computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection) );
+/** PSEUDOCODE for function game() where a for loop will be used to play 5 rounds of the rock paper scissor game
+ *
+ * Create variable of palyercount set it to 0
+ * Create variable of computerCount set it to 0z
+ * for i=0, i<5, i++ 
+ *    playerSelection equals prompt("Please choose Rock, Paper, or Scissor!!").toLowerCase()
+ *    computerSelection equals getComputerChoice
+ *    Create variable of roundResult and equal to  playRound(playerSelection, computerSelection)
+ *       if roundResult includes "lost" 
+ *          computerCount++
+ *       else if roundResult includes "won"
+ *          playerCount++
+ *       else 
+ *          drawCount++
+ * if playerCount is greater than computerCount
+ *    return "You have won and gained a point"
+ *    return "Computer points: " + computerCount + "Player points: " + playerCount
+ * else if playerCount is less than computerCount
+ *    return "You have lost and computer has gained a point"
+ *    return "Computer points: " + computerCount + "Player points: " + playerCount
+ * else 
+ *    return "It is a draw, no one has gained a point"
+ *    return "Computer points: " + computerCount + "Player points: " + playerCount
+ * 
+ * 
+ * call game()
+ * 
+ * 
+ */
+ let playerCount = 0;
+ let computerCount = 0;
+ let drawCount = 0;
+
+function game(){
+  for(let i = 0; i < 5; i++){
+
+    let playerSelection = prompt("Please choose Rock, Paper, or Scissor!!").toLowerCase();
+    let computerSelection = getComputerChoice();
+
+    let roundResult = playRound(playerSelection, computerSelection);
+    console.log(roundResult + " hello round");
+
+    if(roundResult.includes('lost')){
+      computerCount++;
+    } else if(roundResult.includes('won')){
+      playerCount++;
+    } else {
+      drawCount++;
+    }
+
+    if(playerCount > computerCount){
+      console.log (`You have won and gained a point \n Computer Points: ${computerCount} Player points: ${playerCount} Ties: ${drawCount}`);
+    } else if(playerCount < computerCount) {
+      console.log (`You have lost and computer has gained a point \n Computer Points: ${computerCount} Player points: ${playerCount} Ties: ${drawCount}`);
+    } else {
+      console.log (`It is a tie and no one has gained a point \n Computer Points: ${computerCount} Player points: ${playerCount} Ties: ${drawCount}`);
+    }
+  }
+}
+
+game();
