@@ -21,15 +21,15 @@ function getComputerChoice() {
 
   if (randomNum >= 7) {
     computerSelection = "rock";
-    console.log("computer chose rock");
+    console.log("Computer chose rock");
     return computerSelection;
   } else if (randomNum <= 3) {
     computerSelection = "paper";
-    console.log("computer chose paper");
+    console.log("Computer chose paper");
     return computerSelection;
   } else {
     computerSelection = "scissor";
-    console.log("computer chose scissor");
+    console.log("Computer chose scissor");
     return computerSelection;
   }
 }
@@ -67,7 +67,7 @@ function getComputerChoice() {
  **/
 
 function playRound(playerSelection, computerSelection) {
-  console.log(`Player has chosen ${playerSelection}`);
+  console.log(`Player chose ${playerSelection}`);
   if (
     (computerSelection === "rock" && playerSelection === "scissor") ||
     (computerSelection === "paper" && playerSelection === "rock") ||
@@ -125,7 +125,6 @@ function game(){
     let computerSelection = getComputerChoice();
 
     let roundResult = playRound(playerSelection, computerSelection);
-    console.log(roundResult + " hello round");
 
     if(roundResult.includes('lost')){
       computerCount++;
@@ -136,11 +135,11 @@ function game(){
     }
 
     if(playerCount > computerCount){
-      console.log (`You have won and gained a point \n Computer Points: ${computerCount} Player points: ${playerCount} Ties: ${drawCount}`);
+      console.log (`You have won and gained a point!! \n Computer Points: ${computerCount} Player points: ${playerCount} Ties: ${drawCount}`);
     } else if(playerCount < computerCount) {
-      console.log (`You have lost and computer has gained a point \n Computer Points: ${computerCount} Player points: ${playerCount} Ties: ${drawCount}`);
+      console.log (`You have lost and computer has gained a point!! \n Computer Points: ${computerCount} Player points: ${playerCount} Ties: ${drawCount}`);
     } else {
-      console.log (`It is a tie and no one has gained a point \n Computer Points: ${computerCount} Player points: ${playerCount} Ties: ${drawCount}`);
+      console.log (`It is a tie and no one has gained a point!! \n Computer Points: ${computerCount} Player points: ${playerCount} Ties: ${drawCount}`);
     }
   }
 }
