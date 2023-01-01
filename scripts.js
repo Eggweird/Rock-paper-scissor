@@ -35,9 +35,9 @@ function getComputerChoice() {
 }
 /**
  * ---This will start a mock game to test rock paper scissor game
- * 
+ *
  * For switch statement you can do this
- * if playerSelection equals rock 
+ * if playerSelection equals rock
  *     switch computer selection
  *        case "rock"
  *          return "tie"
@@ -45,7 +45,7 @@ function getComputerChoice() {
  *          return "you have lost"
  *        case "paper"
  *           return "you have won"
- * 
+ *
  * if playerSelection equals paper
  *     switch computer selection
  *        case "rock"
@@ -54,7 +54,7 @@ function getComputerChoice() {
  *          return "you have lost"
  *        case "paper"
  *           return "tie"
- * 
+ *
  * if playerSelection equals scissor
  *     switch computer selection
  *        case "rock"
@@ -63,7 +63,7 @@ function getComputerChoice() {
  *          return "tie"
  *        case "paper"
  *           return "you have won"
- * 
+ *
  **/
 
 function playRound(playerSelection, computerSelection) {
@@ -79,7 +79,7 @@ function playRound(playerSelection, computerSelection) {
     (playerSelection === "paper" && computerSelection === "rock") ||
     (playerSelection === "scissor" && computerSelection === "paper")
   ) {
-    return "You have won congratulations!"
+    return "You have won congratulations!";
   } else {
     return "It is a tie Boohoo!";
   }
@@ -89,15 +89,15 @@ function playRound(playerSelection, computerSelection) {
  *
  * Create variable of palyercount set it to 0
  * Create variable of computerCount set it to 0z
- * for i=0, i<5, i++ 
+ * for i=0, i<5, i++
  *    playerSelection equals prompt("Please choose Rock, Paper, or Scissor!!").toLowerCase()
  *    computerSelection equals getComputerChoice
  *    Create variable of roundResult and equal to  playRound(playerSelection, computerSelection)
- *       if roundResult includes "lost" 
+ *       if roundResult includes "lost"
  *          computerCount++
  *       else if roundResult includes "won"
  *          playerCount++
- *       else 
+ *       else
  *          drawCount++
  * if playerCount is greater than computerCount
  *    return "You have won and gained a point"
@@ -105,41 +105,48 @@ function playRound(playerSelection, computerSelection) {
  * else if playerCount is less than computerCount
  *    return "You have lost and computer has gained a point"
  *    return "Computer points: " + computerCount + "Player points: " + playerCount
- * else 
+ * else
  *    return "It is a draw, no one has gained a point"
  *    return "Computer points: " + computerCount + "Player points: " + playerCount
- * 
- * 
+ *
+ *
  * call game()
- * 
- * 
+ *
+ *
  */
- let playerCount = 0;
- let computerCount = 0;
- let drawCount = 0;
+let playerCount = 0;
+let computerCount = 0;
+let drawCount = 0;
 
-function game(){
-  for(let i = 0; i < 5; i++){
-
-    let playerSelection = prompt("Please choose Rock, Paper, or Scissor!!").toLowerCase();
+function game() {
+  for (let i = 0; i < 5; i++) {
+    let playerSelection = prompt(
+      "Please choose Rock, Paper, or Scissor!!"
+    ).toLowerCase();
     let computerSelection = getComputerChoice();
 
     let roundResult = playRound(playerSelection, computerSelection);
 
-    if(roundResult.includes('lost')){
+    if (roundResult.includes("lost")) {
       computerCount++;
-    } else if(roundResult.includes('won')){
+    } else if (roundResult.includes("won")) {
       playerCount++;
     } else {
       drawCount++;
     }
 
-    if(playerCount > computerCount){
-      console.log (`You have won and gained a point!! \n Computer Points: ${computerCount} Player points: ${playerCount} Ties: ${drawCount}`);
-    } else if(playerCount < computerCount) {
-      console.log (`You have lost and computer has gained a point!! \n Computer Points: ${computerCount} Player points: ${playerCount} Ties: ${drawCount}`);
+    if (playerCount > computerCount) {
+      console.log(
+        `You have won and gained a point!! \n Computer Points: ${computerCount} Player points: ${playerCount} Ties: ${drawCount}`
+      );
+    } else if (playerCount < computerCount) {
+      console.log(
+        `You have lost and computer has gained a point!! \n Computer Points: ${computerCount} Player points: ${playerCount} Ties: ${drawCount}`
+      );
     } else {
-      console.log (`It is a tie and no one has gained a point!! \n Computer Points: ${computerCount} Player points: ${playerCount} Ties: ${drawCount}`);
+      console.log(
+        `It is a tie and no one has gained a point!! \n Computer Points: ${computerCount} Player points: ${playerCount} Ties: ${drawCount}`
+      );
     }
   }
 }
