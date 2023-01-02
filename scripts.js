@@ -40,9 +40,10 @@ function playRound(playerSelection) {
     (computerSelection === "scissor" && playerSelection === "paper")
   ) {
     computerScore += 1;
+
     result =
       "<br>Computer won this round <br><br>" +
-      "Score <br>Computer: " +
+      "Score: <br>Computer: " +
       computerScore +
       " Player: " +
       playerScore +
@@ -50,13 +51,15 @@ function playRound(playerSelection) {
       playerSelection +
       "<br>Computer chose: " +
       computerSelection;
+
     console.log("computer wins");
 
     if (computerScore == 5) {
       disableButtons();
+
       result =
         "<br>Computer won 5 rounds and won the match! Please press restart to start the game again.<br><br>" +
-        "Score <br>Computer: " +
+        "Score: <br>Computer: " +
         computerScore +
         " Player: " +
         playerScore +
@@ -71,9 +74,10 @@ function playRound(playerSelection) {
     (playerSelection === "scissor" && computerSelection === "paper")
   ) {
     playerScore += 1;
+
     result =
       "<br>Player won this round <br><br>" +
-      "Score <br>Computer: " +
+      "Score: <br>Computer: " +
       computerScore +
       " Player: " +
       playerScore +
@@ -81,13 +85,15 @@ function playRound(playerSelection) {
       playerSelection +
       "<br>Computer chose: " +
       computerSelection;
+
     console.log("computer loses");
 
     if (playerScore == 5) {
       disableButtons();
+
       result =
         "<br>Player won 5 rounds and won the match! Please press restart to start the game again.<br><br>" +
-        "Score <br>Computer: " +
+        "Score: <br>Computer: " +
         computerScore +
         " Player: " +
         playerScore +
@@ -99,7 +105,7 @@ function playRound(playerSelection) {
   } else {
     result =
       "<br>It is a tie <br><br>" +
-      "Score <br>Computer: " +
+      "Score: <br>Computer: " +
       computerScore +
       " Player: " +
       playerScore +
@@ -107,6 +113,7 @@ function playRound(playerSelection) {
       playerSelection +
       "<br>Computer chose: " +
       computerSelection;
+
     console.log("tie");
   }
 
